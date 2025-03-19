@@ -59,12 +59,12 @@ jobs:
         USERNAME: ${{ secrets.anypoint_platform_username }}
         PASSWORD: ${{ secrets.anypoint_platform_password }}
       run: |
-        artifactName=$(ls *.jar | head -1)
+        artifactName=$(ls target/*.jar | head -1)
         mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
          -Danypoint.username="$USERNAME" \
          -Danypoint.password="$PASSWORD" \
-         -DbusinessGroup="Training" \
+         -Danypoint.businessGroup="Training" \
          -Dworkers=1 \
-         -Dregion=us-east-2 \
-         -Denviroment=Sandbox 
+         -Danypoint.region="us-east-2" \
+         -Denvironment=Sandbox 
