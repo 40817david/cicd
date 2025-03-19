@@ -57,14 +57,16 @@ jobs:
     - name: Deploy to Sandbox
       env:
         USERNAME: ${{ secrets.anypoint_platform_username }}
-        PASSWORD: ${{ secrets.anypoint_platform_password }}
+        CLIENTID: ${{ secrets.anypoint_platform_client_id }}
+        CLIENTSECRET: ${{ secrets.anypoint_platform_client_secret }}
       run: |
         artifactName=$(ls target/*.jar | head -1)
         mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
-         -Danypoint.username="$USERNAME" \
-         -Danypoint.password="$PASSWORD" \
-         -Danypoint.businessGroup="Training" \
+         -Danypoint.username=$USERNAME \
+         -Danypoint.clientId=$CLIENTID \
+         -Danypoint.clientSecret=$CLIENTSECRET \
+         -Danypoint.businessGroup="DemoPoC" \
          -Dworkers=1 \
          -Danypoint.region="us-east-2" \
          -Denvironment=Sandbox 

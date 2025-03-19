@@ -34,10 +34,11 @@
 							<uri>https://anypoint.mulesoft.com</uri>
 							<muleVersion>${app.runtime}</muleVersion>
 							<username>${env.anypoint_platform_username}</username>
-							<password>${env.anypoint_platform_password}</password>
+							<clientId>${anypoint_platform_client_id}</clientId>
+							<clientSecret>${anypoint_platform_client_secret}</clientSecret>
 							<businessGroup>Training</businessGroup>
 							<applicationName>testcicd</applicationName>
-							<environment>Sandbox</environment>
+							<environment>DemoPoc</environment>
 							<region>us-east-2</region>
 							<workers>1</workers>
 							<properties>
