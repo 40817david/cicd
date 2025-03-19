@@ -73,6 +73,6 @@ jobs:
          -Denvironment=Sandbox 
          
     - name: Debug environment variables
-          run: |
-            echo "CLIENTID: $ANYPOINT_PLATFORM_CLIENT_ID"
-            echo "CLIENTSECRET: $ANYPOINT_PLATFORM_CLIENT_SECRET"
+      run: |
+        echo "CLIENTID: $ANYPOINT_PLATFORM_CLIENT_ID"
+        echo "CLIENTSECRET: $ANYPOINT_PLATFORM_CLIENT_SECRET"
