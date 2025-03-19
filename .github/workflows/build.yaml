@@ -64,7 +64,7 @@ jobs:
          -Dmule.artifact=$artifactName \
          -Danypoint.username="$USERNAME" \
          -Danypoint.password="$PASSWORD" \
-         -DworkType=MICRO \
+         -Danypoint.businessGroup="Training" \
          -Dworkers=1 \
-         -Dregion=east-2 \
+         -Dregion=us-east-2 \
          -Denviroment=Sandbox 
