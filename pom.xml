@@ -34,8 +34,8 @@
 							<uri>https://anypoint.mulesoft.com</uri>
 							<muleVersion>${app.runtime}</muleVersion>
 							<username>${env.anypoint_platform_username}</username>
-							<clientId>${anypoint_platform_client_id}</clientId>
-							<clientSecret>${anypoint_platform_client_secret}</clientSecret>
+							<clientId>${env.ANYPOINT_PLATFORM_CLIENT_ID}</clientId>
+							<clientSecret>${env.ANYPOINT_PLATFORM_CLIENT_SECRET}</clientSecret>
 							<businessGroup>Training</businessGroup>
 							<applicationName>testcicd</applicationName>
 							<environment>DemoPoc</environment>

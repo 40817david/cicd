@@ -54,19 +54,25 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: artifacts
+    
     - name: Deploy to Sandbox
       env:
         USERNAME: ${{ secrets.anypoint_platform_username }}
-        CLIENTID: ${{ secrets.anypoint_platform_client_id }}
-        CLIENTSECRET: ${{ secrets.anypoint_platform_client_secret }}
+        ANYPOINT_PLATFORM_CLIENT_ID: ${{ secrets.ANYPOINT_PLATFORM_CLIENT_ID }}
+        ANYPOINT_PLATFORM_CLIENT_SECRET:: ${{ secrets.ANYPOINT_PLATFORM_CLIENT_SECRET }}
       run: |
         artifactName=$(ls target/*.jar | head -1)
         mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
          -Danypoint.username=$USERNAME \
-         -Danypoint.clientId=$CLIENTID \
-         -Danypoint.clientSecret=$CLIENTSECRET \
+         -Danypoint.clientId=$ANYPOINT_PLATFORM_CLIENT_ID \
+         -Danypoint.clientSecret=$ANYPOINT_PLATFORM_CLIENT_SECRET \
          -Danypoint.businessGroup="DemoPoC" \
          -Dworkers=1 \
          -Danypoint.region="us-east-2" \
          -Denvironment=Sandbox 
+         
+    - name: Debug environment variables
+          run: |
+            echo "CLIENTID: $ANYPOINT_PLATFORM_CLIENT_ID"
+            echo "CLIENTSECRET: $ANYPOINT_PLATFORM_CLIENT_SECRET"
